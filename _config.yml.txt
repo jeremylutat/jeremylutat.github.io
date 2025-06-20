@@ -36,4 +36,12 @@ author:
 theme_settings:
   minimal_mistakes_skin: "default"
 
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: single
+      author_profile: true
+
 # Google Analytics or other add-ons can be added later
