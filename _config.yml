@@ -31,3 +31,13 @@ author:
       - label: "GitHub"
         icon: "fab fa-github"
         url: "https://github.com/jeremylutat"
+        
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: single
+      author_profile: true
+      sidebar:
+        nav: "main"
