@@ -3,6 +3,8 @@ layout: single
 title: "Jeremy Lutat Portfolio"
 permalink: /
 author_profile: true
+sidebar:
+  nav: "main"
 ---
 
 # Welcome — I’m Jeremy Lutat  
