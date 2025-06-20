@@ -34,10 +34,12 @@ author:
         
 defaults:
   - scope:
-      path: ""
-      type: "pages"
+      path: ""        # all files in root
+      type: "pages"   # only .md pages
     values:
       layout: single
+      author: jeremy        # <-- this key must match your authors.yml ID
       author_profile: true
       sidebar:
-        nav: "main"
+        nav: main           # use your _data/navigation.yml “main” menu
+
