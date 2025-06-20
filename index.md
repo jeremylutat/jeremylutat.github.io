@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 title: "Jeremy Lutat Portfolio"
 permalink: /
 author_profile: true
