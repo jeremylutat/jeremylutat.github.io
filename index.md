@@ -1,7 +1,8 @@
 ---
-layout: single
+layout: home
 title: "Jeremy Lutat Portfolio"
 permalink: /
+author_profile: true
 ---
 
 # Welcome — I’m Jeremy Lutat  
