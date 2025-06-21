@@ -1,3 +1,13 @@
 main:
   - title: "Home"
     url: /
+
+  - title: "Case Studies"
+    children:
+      - title: "Customer Segmentation"
+        url: "/customer-segmentation/"
+        - title: "Iowa Liquor Sales (planned)"
+      - title: "Seasonal Assortment Tracking (in work)"
+  
+  - title: "Blog"
+    url: "/blog/"
