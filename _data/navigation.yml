@@ -6,7 +6,7 @@ main:
     children:
       - title: "Customer Segmentation"
         url: "/customer-segmentation/"
-        - title: "Iowa Liquor Sales (planned)"
+      - title: "Iowa Liquor Sales (planned)"
       - title: "Seasonal Assortment Tracking (in work)"
   
   - title: "Blog"
