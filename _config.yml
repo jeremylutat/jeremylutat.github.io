@@ -5,38 +5,14 @@ baseurl: "" # leave blank for user.github.io
 
 plugins:
   - jekyll-include-cache
-  - jekyll-remote-theme
 
-remote_theme: "mmistakes/minimal-mistakes@4.27.1"  # pin to the latest stable tag
+
+remote_theme: "mmistakes/minimal-mistakes"  # pin to the latest stable tag
 
 minimal_mistakes_skin: "default"
 locale: "en-US"
 markdown: kramdown
 highlighter: rouge
-
-author:
-  jeremy:
-    name: "Jeremy Lutat"
-    avatar: "/assets/images/jeremy.jpg"
-    bio: "Product strategist, pivoting from product development + sourcing toward marketing and analytics. Former Walmart. EMBA graduate. Data-driven, insight-focused, and customer-centered."
-    location: "New York, NY"
-    links:
-      - label: "LinkedIn"
-        icon: "fab fa-linkedin"
-        url: "https://www.linkedin.com/in/jeremylutat"
-        target="_blank"
-      - label: "Tableau Public"
-        icon: "fas fa-chart-bar"
-        url: "https://public.tableau.com/app/profile/jeremylutat"
-        target="_blank"
-      - label: "Kaggle"
-        icon: "fab fa-kaggle"
-        url: "https://www.kaggle.com/jeremylutat"
-        target="_blank"
-      - label: "GitHub"
-        icon: "fab fa-github"
-        url: "https://github.com/jeremylutat"
-        target="_blank"
         
 defaults:
   - scope:
