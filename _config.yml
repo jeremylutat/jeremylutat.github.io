@@ -22,22 +22,26 @@ author:
       - label: "LinkedIn"
         icon: "fab fa-linkedin"
         url: "https://www.linkedin.com/in/jeremylutat"
+        target: "_blank"
       - label: "Tableau Public"
         icon: "fas fa-chart-bar"
         url: "https://public.tableau.com/app/profile/jeremylutat"
+        target: "_blank"
       - label: "Kaggle"
         icon: "fab fa-kaggle"
         url: "https://www.kaggle.com/jeremylutat"
+        target: "_blank"
       - label: "GitHub"
         icon: "fab fa-github"
         url: "https://github.com/jeremylutat"
+        target: "_blank"
         
 defaults:
   - scope:
       path: ""        # all files in root
       type: "pages"   # only .md pages
     values:
-      layout: single
+      layout: home
       author: jeremy        # <-- this key must match your authors.yml ID
       author_profile: true
       sidebar:
