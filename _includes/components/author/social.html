@@ -1,0 +1,11 @@
+{%- assign author = site.data.authors[page.author] -%}
+{%- for link in author.links -%}
+  <a
+    href="{{ link.url }}"
+    title="{{ link.label }}"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="author__social-link">
+    <i class="{{ link.icon }}"></i>
+  </a>
+{%- endfor -%}

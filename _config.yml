@@ -3,9 +3,11 @@ description: "Data-driven brand strategy, analytics case studies, and profession
 url: "https://jeremylutat.github.io"
 baseurl: "" # leave blank for user.github.io
 
-remote_theme: "mmistakes/minimal-mistakes"
 plugins:
   - jekyll-include-cache
+  - jekyll-remote-theme
+
+remote_theme: "mmistakes/minimal-mistakes@4.27.1"  # pin to the latest stable tag
 
 minimal_mistakes_skin: "default"
 locale: "en-US"
@@ -38,12 +40,23 @@ author:
         
 defaults:
   - scope:
-      path: ""        # all files in root
-      type: "pages"   # only .md pages
+      path: ""
+      type: "pages"
     values:
-      layout: home
-      author: jeremy        # <-- this key must match your authors.yml ID
+      layout: single
+      author: jeremy
       author_profile: true
       sidebar:
-        nav: main           # use your _data/navigation.yml “main” menu
+        nav: main
+        collapsed: false
 
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: single
+      author: jeremy
+      author_profile: true
+      sidebar:
+        nav: main
+        collapsed: false
