@@ -4,8 +4,8 @@ url: "https://jeremylutat.github.io"
 baseurl: "" # leave blank for user.github.io
 
 plugins:
+  - jekyll-remote-theme
   - jekyll-include-cache
-
 
 remote_theme: "mmistakes/minimal-mistakes"  # pin to the latest stable tag
 
