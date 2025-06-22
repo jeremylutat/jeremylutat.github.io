@@ -1,8 +1,7 @@
 ---
-layout: collection
 title: "Blog"
+layout: posts
 permalink: /blog/
-collection: posts
-entries_layout: grid
+author_profile: true
 ---
 Here you’ll find my latest posts and announcements.
