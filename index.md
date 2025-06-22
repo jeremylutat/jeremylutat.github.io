@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 author_profile: true
 title: "Jeremy Lutat Portfolio"
 header:
@@ -7,12 +7,12 @@ header:
   overlay_filter: "0.2"
   caption:
 excerpt: "Retail expert pivoting into brand and analytics. This portfolio showcases my data-driven approach to marketing and business insight."
-
+classes:wide
 ---
 
 ## 🔍 Featured Case Studies
 
-{% for item in site._case_studies %}
+{% for item in site.case_studies %}
   {% include archive-single.html %}
 {% endfor %}
 
@@ -20,6 +20,6 @@ excerpt: "Retail expert pivoting into brand and analytics. This portfolio showca
 
 ## 📰 Recent Blog Posts
 
-{% for post in site._posts limit:3 %}
+{% for post in site.posts limit:3 %}
   {% include archive-single.html %}
 {% endfor %}

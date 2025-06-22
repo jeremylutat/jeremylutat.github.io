@@ -2,7 +2,7 @@
 layout: collection
 title: "Blog"
 permalink: /blog/
-collection: _posts
+collection: posts
 entries_layout: grid
 ---
 Here you’ll find my latest posts and announcements.

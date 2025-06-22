@@ -1,9 +1,9 @@
 ---
-layout: Collection
+layout: collection
 title: "Case Studies"
 permalink: /case-studies/
 collection: case_studies
-entries_layout: grid
+entries_layout: list   # ← change from grid to list
 classes: wide
 ---
 
