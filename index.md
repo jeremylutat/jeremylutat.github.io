@@ -1,7 +1,6 @@
 ---
 layout: single
 title: "Jeremy Lutat Portfolio"
-classes:wide
 author_profile: true
 ---
 
