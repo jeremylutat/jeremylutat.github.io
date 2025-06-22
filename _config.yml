@@ -9,14 +9,12 @@ plugins:
 
 remote_theme: "mmistakes/minimal-mistakes"  # pin to the latest stable tag
 
+permalink: /blog/:year/:month/:day/:title/
+
 collections:
   case_studies:
     output: true
     permalink: /case-studies/:path/
-
-  blog:
-    output: true
-    permalink: /blog/:path/
 
 minimal_mistakes_skin: "default"
 locale: "en-US"
@@ -26,22 +24,15 @@ highlighter: rouge
 defaults:
   - scope:
       path: ""
-      type: "pages"
+      type: posts
     values:
       layout: single
-      author: jeremy
       author_profile: true
-      sidebar:
-        nav: main
-        collapsed: false
 
   - scope:
       path: ""
-      type: "posts"
+      type: case_studies
     values:
       layout: single
-      author: jeremy
-      author_profile: true
-      sidebar:
-        nav: main
-        collapsed: false
+      author_profile: false
+      share: true
