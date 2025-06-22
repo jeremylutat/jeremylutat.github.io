@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "TEST POST: Customer Segmentation Case Study"
 date: 2025-07-15
 author: jeremy

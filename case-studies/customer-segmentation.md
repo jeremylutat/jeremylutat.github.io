@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "Customer Segmentation & Brand Opportunity Forecasting"
-permalink: /customer-segmentation/
+title: "Customer Segmentation & Brand Opportunity"
+permalink: /case-studies/customer-segmentation/
 author: jeremy
 ---
 # Customer Segmentation & Brand Opportunity Forecasting
