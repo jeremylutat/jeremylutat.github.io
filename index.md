@@ -1,17 +1,18 @@
 ---
-layout: single
-title: "Jeremy Lutat Portfolio"
+layout: home
 author_profile: true
-classes: wide
----
-
-Welcome! I’m Jeremy Lutat — a strategic problem solver with a background in product development and sourcing, now pivoting toward the analytical and customer-facing side of brand and marketing strategy.
+title: "Jeremy Lutat Portfolio"
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.2"
+  caption:
+excerpt: "Retail expert pivoting into brand and analytics. This portfolio showcases my data-driven approach to marketing and business insight."
 
 ---
 
 ## 🔍 Featured Case Studies
 
-{% for item in site.case_studies %}
+{% for item in site._case_studies %}
   {% include archive-single.html %}
 {% endfor %}
 
@@ -19,6 +20,6 @@ Welcome! I’m Jeremy Lutat — a strategic problem solver with a background in 
 
 ## 📰 Recent Blog Posts
 
-{% for post in site.posts limit:3 %}
+{% for post in site._posts limit:3 %}
   {% include archive-single.html %}
 {% endfor %}
