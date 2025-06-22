@@ -3,9 +3,10 @@ main:
     url: "/"
 
   - title: "Case Studies"
+    url: "/case-studies/"
     children:
       - title: "Customer Segmentation"
-        url: "/customer-segmentation/"
+        url: "/case-studies/customer-segmentation/"
       - title: "Iowa Liquor Sales (planned)"
       - title: "Seasonal Assortment Tracking (in work)"
   

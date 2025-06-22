@@ -3,5 +3,4 @@ layout: archive
 title: "Blog"
 permalink: /blog/
 ---
-
-Here you’ll see all my posts and updates.
+Here you’ll find my latest posts and announcements.
