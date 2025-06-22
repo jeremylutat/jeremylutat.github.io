@@ -9,8 +9,24 @@ plugins:
 
 remote_theme: "mmistakes/minimal-mistakes"  # pin to the latest stable tag
 
-permalink: /blog/:year/:month/:day/:title/
+permalink: /posts/:year/:month/:day/:title/
 
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+
+  - scope:
+      path: ""
+      type: case_studies
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      
 collections:
   case_studies:
     output: true
@@ -34,5 +50,5 @@ defaults:
       type: case_studies
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: true
