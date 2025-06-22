@@ -9,6 +9,10 @@ plugins:
 
 remote_theme: "mmistakes/minimal-mistakes"  # pin to the latest stable tag
 
+theme_settings:
+  navigation:
+    main: main
+
 permalink: /posts/:year/:month/:day/:title/
 
 defaults:
