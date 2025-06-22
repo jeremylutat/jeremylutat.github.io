@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Three Insights from My First Data Analytics Projects"
 date: 2025-07-20
 author: jeremy
@@ -8,6 +8,8 @@ categories: [blog]
 tags: [data analytics, SQL, Tableau, career transition]
 excerpt: "Key lessons I learned from building my first portfolio projects in SQL and Tableau as I pivot into marketing and analytics."
 ---
+
+![Three Insights Hero Image](/assets/images/insights-hero.png)
 
 As I transition from a product development background into data-driven brand strategy, I’ve been building a portfolio of analytics work — including segmentation analysis and seasonal tracking projects.
 
