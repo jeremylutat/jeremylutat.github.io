@@ -1,5 +1,5 @@
 ---
-layout: collection
+layout: single
 title: "Case Studies"
 permalink: /case-studies/
 collection: case_studies
