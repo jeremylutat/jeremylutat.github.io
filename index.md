@@ -2,14 +2,8 @@
 layout: single
 title: "Jeremy Lutat Portfolio"
 author_profile: true
----
-
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.2"
-  caption:
-excerpt: "Retail expert pivoting into brand and analytics. This portfolio showcases my data-driven approach to marketing and business insight."
-
+sidebar:
+  nav: "main"
 ---
 
 ## 🔍 Featured Case Studies
