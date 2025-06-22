@@ -3,17 +3,27 @@ description: "Data-driven brand strategy, analytics case studies, and profession
 url: "https://jeremylutat.github.io"
 baseurl: "" # leave blank for user.github.io
 
-plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
-remote_theme: "mmistakes/minimal-mistakes"  # pin to the latest stable tag
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-remote-theme
 
 theme_settings:
   navigation:
     main: main
 
-permalink: /posts/:year/:month/:day/:title/
+collections:
+  case_studies:
+    output: true
+    permalink: /case-studies/:path/
+
+permalink: /blog/:year/:month/:day/:title/
 future: true
 
 defaults:
@@ -21,39 +31,11 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: true
-
+      layout: post
+      author: jeremy
   - scope:
       path: ""
       type: case_studies
     values:
       layout: single
-      author_profile: true
-      share: true
-      
-collections:
-  case_studies:
-    output: true
-    permalink: /case-studies/:path/
-
-minimal_mistakes_skin: "default"
-locale: "en-US"
-markdown: kramdown
-highlighter: rouge
-        
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-
-  - scope:
-      path: ""
-      type: case_studies
-    values:
-      layout: single
-      author_profile: true
-      share: true
+      author: jeremy
