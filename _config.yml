@@ -9,6 +9,15 @@ plugins:
 
 remote_theme: "mmistakes/minimal-mistakes"  # pin to the latest stable tag
 
+collections:
+  case_studies:
+    output: true
+    permalink: /case-studies/:path/
+
+  blog:
+    output: true
+    permalink: /blog/:path/
+
 minimal_mistakes_skin: "default"
 locale: "en-US"
 markdown: kramdown
