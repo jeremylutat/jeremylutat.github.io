@@ -26,6 +26,9 @@ collections:
 permalink: /blog/:year/:month/:day/:title/
 future: true
 
+footer_scripts:
+  - /assets/js/externalLinksHandler.js
+
 defaults:
   - scope:
       path: ""
