@@ -1,6 +1,5 @@
 ---
 layout: single
-title: "Jeremy Lutat Portfolio"
 author_profile: true
 author: jeremy
 sidebar:
