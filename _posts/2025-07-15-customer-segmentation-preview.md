@@ -6,6 +6,8 @@ author: jeremy
 categories: [blog]
 excerpt: "Test Post: Preview of our case study exploring segmentation methods and outcomes."
 ---
-I’ve just published a new case study on [Customer Segmentation & Brand Opportunity Forecasting](/customer-segmentation/).  
+I’ve just published a new case study on [Customer Segmentation & Brand Opportunity Forecasting](/case-studies/customer-segmentation/)
+.  
 In it, I explore how to slice and dice our ecommerce data to uncover high-value segments and inform smarter targeting.  
-Feel free to read the full details here: [/customer-segmentation/](/customer-segmentation/).
+Feel free to read the full details here: [Customer Segmentation & Brand Opportunity Forecasting](/case-studies/customer-segmentation/).
+.
