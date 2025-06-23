@@ -6,6 +6,7 @@ collection: case_studies
 entries_layout: list   
 classes: wide
 author_profile: true
+author: jeremy
 sidebar:
   nav: "main"
 ---

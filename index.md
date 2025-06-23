@@ -2,13 +2,14 @@
 layout: single
 title: "Jeremy Lutat Portfolio"
 author_profile: true
+author: jeremy
 sidebar:
   nav: "main"
 ---
 
 ## 🔍 Featured Case Studies
 
-{% for item in site.case-studies %}
+{% for item in site._case_studies %}
   {% include archive-single.html %}
 {% endfor %}
 

@@ -3,6 +3,8 @@ layout: single
 title: "Customer Segmentation & Brand Opportunity"
 permalink: /case-studies/customer-segmentation/
 author: jeremy
+sidebar:
+  nav: "main"
 ---
 # Customer Segmentation & Brand Opportunity Forecasting
 
