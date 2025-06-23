@@ -9,7 +9,7 @@ sidebar:
 
 ## 🔍 Featured Case Studies
 
-{% for item in site.case_studies %}
+{% for item in site.case_studies limit:3 %}
   {% include archive-single.html %}
 {% endfor %}
 
