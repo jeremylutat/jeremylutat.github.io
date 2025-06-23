@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Welcome to my portfilio & blog!
+title: Welcome to my portfolio & blog!
 author_profile: true
 author: jeremy
 sidebar:
