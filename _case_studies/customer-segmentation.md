@@ -5,6 +5,7 @@ permalink: /case-studies/customer-segmentation/
 author: jeremy
 sidebar:
   nav: "main"
+classes: wide
 ---
 # Customer Segmentation & Brand Opportunity Forecasting
 
