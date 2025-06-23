@@ -1,5 +1,6 @@
 ---
 layout: single
+title:
 author_profile: true
 author: jeremy
 sidebar:
