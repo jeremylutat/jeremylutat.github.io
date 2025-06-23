@@ -4,6 +4,8 @@ title: "Three Insights from My First Data Analytics Projects"
 date: 2025-07-20
 author: jeremy
 author_profile: true
+sidebar:
+  nav: "main"
 categories: [blog]
 tags: [data analytics, SQL, Tableau, career transition]
 excerpt: "Key lessons I learned from building my first portfolio projects in SQL and Tableau as I pivot into marketing and analytics."

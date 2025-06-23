@@ -4,6 +4,8 @@ title: "Customer Segmentation Preview"
 date: 2025-07-15
 author: jeremy
 author_profile: true
+sidebar:
+  nav: "main"
 categories: [blog]
 excerpt: "Test Post: Preview of our case study exploring segmentation methods and outcomes."
 ---

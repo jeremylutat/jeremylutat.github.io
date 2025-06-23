@@ -6,8 +6,6 @@ author: jeremy
 sidebar:
   nav: "main"
 classes: wide
-Exerpt:>
-  A national e-commerce retailer wants to understand which customer segments drive the most revenue, how their behavior differs, and where untapped growth opportunities lie. This project identifies high-value segments and prescribes targeted marketing tactics to maximize ROI.
 ---
 
 ## 📋 Business Task -
