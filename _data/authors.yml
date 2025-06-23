@@ -10,7 +10,7 @@ jeremy:
       target: "_blank"
     - label: "Tableau Public"
       icon: "fas fa-chart-bar"
-      url: "https://public.tableau.com/app/profile/jeremylutat"
+      url: "https://public.tableau.com/app/profile/jeremy.lutat/vizzes"
       target: "_blank"
     - label: "Kaggle"
       icon: "fab fa-kaggle"
