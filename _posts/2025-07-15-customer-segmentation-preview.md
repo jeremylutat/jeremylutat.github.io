@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Customer Segmentation Preview"
 date: 2025-07-15
 author: jeremy
