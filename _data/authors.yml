@@ -4,19 +4,9 @@ jeremy:
   bio: "Product strategist, pivoting from product development + sourcing toward marketing and analytics. Former Walmart. EMBA graduate. Data-driven, insight-focused, and customer-centered."
   location: "New York, NY"
   links:
-    - label: "LinkedIn"
-      icon: "fab fa-linkedin"
-      url: "https://www.linkedin.com/in/jeremylutat"
-      target: "_blank"
-    - label: "Tableau Public"
-      icon: "fas fa-chart-bar"
-      url: "https://public.tableau.com/app/profile/jeremylutat"
-      target: "_blank"
-    - label: "Kaggle"
-      icon: "fab fa-kaggle"
-      url: "https://www.kaggle.com/jeremylutat"
-      target: "_blank"
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: "https://github.com/jeremylutat"
-      target: "_blank"
+  - label: '<a href="https://www.linkedin.com/in/jeremylutat" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>'
+      url: ""
+    - label: '<a href="https://public.tableau.com/app/profile/jeremy.lutat" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> Tableau Public</a>'
+      url: ""
+    - label: '<a href="https://www.kaggle.com/jeremylutat" target="_blank" rel="noopener"><i class="fab fa-kaggle"></i> Kaggle</a>'
+      url: ""
