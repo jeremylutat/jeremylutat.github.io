@@ -5,6 +5,7 @@ baseurl: "" # leave blank for user.github.io
 
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
+
 plugins:
   - jekyll-feed
   - jekyll-include-cache
@@ -17,6 +18,9 @@ plugins:
 theme_settings:
   navigation:
     main: main
+minimal_mistakes_skin: "air"     # a clean, modern light theme
+dark_theme: true                 # enables system preference detection
+enable_theme_toggle: true        # (optional) lets users manually toggle
 
 collections:
   case_studies:
@@ -42,3 +46,5 @@ defaults:
     values:
       layout: single
       author: jeremy
+      
+      
