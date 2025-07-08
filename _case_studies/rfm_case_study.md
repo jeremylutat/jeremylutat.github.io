@@ -15,6 +15,7 @@ tags:
   - retention
   - tableau
   - ecommerce
+assets: /assets/images
 ---
 
 # Introduction
