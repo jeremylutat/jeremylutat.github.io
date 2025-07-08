@@ -18,8 +18,7 @@ assets: /assets/rfm_case_study
 ---
 
 # Introduction
-
-In this case study, we'll perform a **Recency-Frequency-Monetary (RFM)** analysis on an e-commerce company's customer transaction data. The goal is to segment customers based on their purchase behavior over three consecutive one-year periods (July,2022–June,2023, July,2023–June,2024, and July,2024–June,2025). By comparing RFM segments across these time windows, we aim to uncover issues and opportunities in segment performance, identify new and loyal customers, flag at-risk or lost customers, and analyze segment migration over time. This will help the business tailor marketing strategies to different customer groups (e.g. rewarding champions, re-engaging at-risk customers, and retaining new customers).
+Effective e-commerce hinges on knowing who your customers are and how they behave. In this case study, I start by assessing and cleaning the TheLook eCommerce dataset, then apply an RFM framework—enhanced with an “emerging repeat buyer” flag—to segment customers into repeat champions, emerging repeat buyers, and one-time shoppers. I analyze each group’s recency, frequency, and monetary value to reveal their distinct purchasing patterns. From those insights, I draw initial recommendations for tailored marketing tactics and retention efforts.
 
 **RFM Segmentation** is a classic marketing technique that evaluates customers by:
 - **Recency (R):** How recently a customer made a purchase (customers who purchased more recently are often more engaged).
@@ -52,6 +51,7 @@ library(scales)
 transactions <- read_csv("transactions_cleaned.csv")
 customers    <- read_csv("customer_metadata_cleaned.csv")
 ```
+
 *(For brevity, no need to load 'inventory_cleaned.csv', 'events_cleaned.csv', 'dc_list_cleaned.csv', as they are not directly needed for the RFM analysis.)* 
 
 Let's inspect the transactions data structure:
@@ -84,6 +84,7 @@ Next, we define the three time windows for segmentation. Based on the data and b
 - **FY2025**: July 1, 2024 – June 30, 2025
 
 We'll start by Joining the "customers" and "transactions" tables to update the latter to include `traffic_source`.
+
 ```{r 03-join-customers, echo=TRUE, include=TRUE}
 transactions <- transactions %>%
   left_join(
@@ -124,6 +125,7 @@ cat(
   "W3 rows:", nrow(transactions_w3), "  users:", n_distinct(transactions_w3$user_id), "\n"
 )
 ```
+
 *(The above code prints the number of transactions and unique customers in each period for verification.)*
 
 # RFM Calculation by Period
@@ -135,6 +137,7 @@ Now calculate Recency, Frequency, and Monetary values for each customer in each 
 - **Monetary**: The total spending by the customer in that period, calculated as the sum of `sale_price` for all their purchases (returns excluded as filtered). This represents the revenue contributed by the customer.
 
 We'll use **dplyr** to group transactions by user and compute these metrics for each period.
+
 ```{r 05-rfm-metrics, echo=TRUE, include=TRUE}
 rfm_w1 <- transactions_w1 %>%
   group_by(user_id, traffic_source) %>%
@@ -348,7 +351,6 @@ rfm_2025_scored <- rfm_w3 %>%
   )
 ```
 
-
 ## Segment Profiles per Period
 
 For a deeper understanding, we can calculate some Key Performance Indicators (KPIs) for each segment in each period:
@@ -387,6 +389,7 @@ kpi_by_window %>%
     caption = "Segment KPI Summary Across Windows"
   )
 ```
+
 *(The above table shows how each segment contributes to business outcomes as well as how many customers are in each segment for each window.)* 
 
 **Insights from segment profiles:**
@@ -421,6 +424,7 @@ These counts enable us to:
 - **Measure new-customer retention**: how many customers acquired in year 1 made a purchase in year 2.
 - **Measure churn**: how many active customers in year 1 did not return in year 2.
 - **Identify top segment transitions**: which flows dominate (e.g. New-Promising, Loyal-Champion).
+
 ```{r 08-build-migrations, echo=TRUE, include=TRUE}
 # Build user‐segment lists for each window
 segment_by_user <- list(
@@ -521,6 +525,7 @@ knitr::kable(
 
 
 ```
+
 *The table above shows a matrix of previous and current segments for the 2024-2025 RFM observation window. The counts indicate how many customers moved from the previous segment to the corresponding new segment. Inactive to a segment means a new or reactivated customer. A segment to inactive means a customer churned.*
 
 **Key Takeaways from Migration & Retention:**
@@ -540,6 +545,7 @@ In this section, we present faceted visualizations that bring the segment KPI re
 
 ### Revenue Share by Segment (Faceted by Period)
 By faceting revenue bars by period, we can easily compare which segments grew or shrank in revenue share across years. For instance, Champions may contribute an increasing share in FY2025 compared to FY2023, while others plateau or decline.
+
 ```{r 09-rev-by-segment, echo=TRUE, fig.cap="Revenue by Segment Across Periods"}
 # Named list of RFM data frames
 segmented_rfm <- list(
@@ -608,6 +614,7 @@ ggplot(rev_pc_df, aes(x = Period, y = revenue_per_customer, fill = Period)) +
 
 ### AOV Trend by Segment (Faceted)
 This faceted line chart clearly shows how average order value for each segment evolves over time, highlighting segments that are improving in spending versus those that are stagnant or declining.
+
 ```{r 11-aov-trend, echo=TRUE, fig.cap="AOV Trend by Segment"}
 # Combine all three windows into one data frame with a Period identifier
 aov_data <- bind_rows(
@@ -642,6 +649,7 @@ ggplot(aov_data, aes(x = Period, y = AOV, group = segment)) +
 
 ### Return Rate Heatmap (Faceted by Segment)
 Faceting this heatmap by segment isolates each segment’s return rate trends, making it easier to see if returns are improving or worsening over time within specific customer groups.
+
 ```{r 12-return-heatmap, echo=TRUE, fig.cap="Return Rate by Segment & Period"}
 # Build a customer‐period return flag from the raw transactions
 customer_returns <- transactions %>%
@@ -707,6 +715,7 @@ returns_by_segment %>%
 
 ### Traffic Source Mix by Segment (Faceted by Period)
 This faceted bar chart shows how the customer acquisition channels differ by segment and period. It helps identify which channels are most effective at bringing in high-value segments vs. segments with high return rates.
+
 ```{r 13-traffic-mix, echo=TRUE, fig.cap="Traffic Source Mix by Segment Across Periods"}
 # Combine all three windows into one data frame, tagging each row with its period
 traffic_data <- bind_rows(
@@ -744,8 +753,8 @@ ggplot(traffic_data, aes(x = Period, y = proportion, fill = traffic_source)) +
   )
 ```
 
-
 ### Sankey Diagram of Segment Flows
+To create a Sankey diagram, we'll create a longform chart capturing the aggregated counts of all of the unique flows, including columns for each year's segment for each flow, and the aggregated number of users for each unique flow. This can then be imported into Tableau Public, where the column for each year serves as the "level" when using the Sankey extension, and the sum of users for each flow (here N) will be applied as the link.
 
 ```{r 14-build-sankey-data, echo=TRUE, include=TRUE}
 # Compute each customer’s first-ever transaction date (against your full transactions table)
@@ -799,6 +808,8 @@ write.csv(sankey_input, "sankey_input.csv")
 *Figure 2. Same migration flows filtered to only first-time buyers in each period.*
 
 **Here is a live embedded version:**
+
+{% raw %}
 <div class='tableauPlaceholder' id='viz1751865616462' style='position: relative'>
   <noscript>
     <a href='#'>
@@ -832,7 +843,7 @@ write.csv(sankey_input, "sankey_input.csv")
   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
   vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
-
+{% endraw %}
 
 # Insights and Recommendations
 
