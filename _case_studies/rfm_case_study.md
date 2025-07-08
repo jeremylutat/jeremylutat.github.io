@@ -815,13 +815,13 @@ write.csv(sankey_input, "sankey_input.csv")
 
 ## Customer Segment Migration (All Customers)
 
-![Segment Population Movement June 2022 – June 2025](assets/images/segment_population_flow_sankey.png)
+![Segment Population Movement June 2022 – June 2025](/assets/images/segment_population_flow_sankey.png)
 
 *Figure 1. Sankey diagram in Tableau Public showing how customers flow between RFM segments from 2022 through the end of the observaton window in 2025.*
 
 ## Customer Segment Migration (New Customers Only)
 
-![New‐Customer Segment Movement June 2022 – June 2025](assets/images/segment_newpopulation_flow_sankey.png)
+![New‐Customer Segment Movement June 2022 – June 2025](/assets/images/segment_newpopulation_flow_sankey.png)
 
 *Figure 2. Same migration flows filtered to only first-time buyers in each period.*
 
