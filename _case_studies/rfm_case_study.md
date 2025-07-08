@@ -2,6 +2,8 @@
 title: "Customer Segmentation RFM Case Study"
 date: 2025-07-07
 permalink: /case-studies/rfm-customer-segmentation/
+type: pages
+layout: single
 sidebar:
   nav: "main"
 classes: wide
