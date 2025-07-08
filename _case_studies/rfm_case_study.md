@@ -583,7 +583,9 @@ bind_rows(
 
 ### Revenue Per Customer by Segment (Faceted Across Periods)
 This bar chart shows the average revenue generated per customer in each segment for FY2023, FY2024, and FY2025. By faceting on segment and plotting a trio of colored bars (one per year), we can compare how much each type of customer contributes on a per‐head basis and how their value evolves year over year. This view complements overall revenue trends by normalizing for segment size, helping us understand which groups deliver the greatest return on acquisition and where there may be upside in shifting focus.
-```{r 10-rev-per-cust, echo=TRUE, fig.cap="Revenue per Customer by Segment Across Periods"}
+
+```
+{r 10-rev-per-cust, echo=TRUE, fig.cap="Revenue per Customer by Segment Across Periods"}
 # compute revenue per customer by segment & period
 rev_pc_df <- bind_rows(
   map2(segmented_rfm, names(segmented_rfm), ~ .x %>% mutate(Period = .y))
