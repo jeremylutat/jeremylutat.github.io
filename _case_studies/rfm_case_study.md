@@ -20,8 +20,8 @@ tags:
 assets: /assets/images
 ---
 
-# Introduction
-Effective e-commerce hinges on knowing who your customers are and how they behave. In this case study, I start by assessing and cleaning the TheLook eCommerce dataset, then apply an RFM framework—enhanced with an “emerging repeat buyer” flag—to segment customers into repeat champions, emerging repeat buyers, and one-time shoppers. I analyze each group’s recency, frequency, and monetary value to reveal their distinct purchasing patterns. From those insights, I draw initial recommendations for tailored marketing tactics and retention efforts.
+# Introduction - 
+Effective e-commerce hinges on knowing who your customers are and how they behave. In this case study, I start by assessing and cleaning the TheLook eCommerce dataset, then apply an RFM framework to segment customers into repeat champions, emerging repeat buyers, and one-time shoppers. I analyze each group’s recency, frequency, and monetary value to reveal their distinct purchasing patterns. From those insights, I draw initial recommendations for tailored marketing tactics and retention efforts.
 
 **RFM Segmentation** is a classic marketing technique that evaluates customers by:
 - **Recency (R):** How recently a customer made a purchase (customers who purchased more recently are often more engaged).
@@ -543,8 +543,10 @@ knitr::kable(
 
 
 ```
-![Retention Churn Summary 24](/assets/images/rfm_retentionrecap24.png)
+![Retention Churn Summary 24](/assets/images/rfm_retentionrecap24.png)  
+
 ![Retention Churn Summary 25](/assets/images/rfm_retentionrecap25.png)
+
 ![Retention Detail 24](/assets/images/rfm_retention24.png)
 ![Retention Detail 25](/assets/images/rfm_retention25.png)
 ![Migration Matrix 23-24](/assets/images/rfm_migrationmatrix24.png)
