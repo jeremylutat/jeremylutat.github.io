@@ -66,6 +66,9 @@ glimpse(transactions)
 head(transactions, 5)
 ```
 
+![Transactions Glimpse](/assets/images/rfm_glimpsetransactions.png)
+![Transactions Head](/assets/images/rfm_headtransactions.png)
+
 Each transaction record represents **one item in an order**. Key fields include:
 
 -  `user_id`: Customer identifier.
@@ -133,6 +136,7 @@ cat(
 )
 ```
 
+![Sanity Check Table](/assets/images/rfm_windowsanitycheck.png)
 *(The above code prints the number of transactions and unique customers in each period for verification.)*
 
 # RFM Calculation by Period
@@ -178,6 +182,8 @@ rfm_w3 <- transactions_w3 %>%
   )
 head(rfm_w3)
 ```
+
+![W3 RFM Head](/assets/images/rfm_w3datatibble.png)
 
 At this stage, we have three tables ('rfm_w1, 'rfm_w2', 'rfm_w3'), each with one row per customer active in that period, and columns for `Recency_days`, `Frequency`, and `Monetary`. 
 
@@ -400,7 +406,8 @@ kpi_by_window %>%
   )
 ```
 
-*(The above table shows how each segment contributes to business outcomes as well as how many customers are in each segment for each window.)* 
+![Segment KPI Summary](/assets/images/rmf_kpiwideexcel.png)
+*The above tables show how each segment contributes to business outcomes as well as how many customers are in each segment for each window. Note: This data was exported and manipulated in Excel for easier viewing, and the revenue per customer data was added there to enrich the data.* 
 
 **Insights from segment profiles:**
 
@@ -536,8 +543,13 @@ knitr::kable(
 
 
 ```
-
-*The table above shows a matrix of previous and current segments for the 2024-2025 RFM observation window. The counts indicate how many customers moved from the previous segment to the corresponding new segment. Inactive to a segment means a new or reactivated customer. A segment to inactive means a customer churned.*
+![Retention Churn Summary 24](/assets/images/rfm_retentionrecap24.png)
+![Retention Churn Summary 25](/assets/images/rfm_retentionrecap25.png)
+![Retention Detail 24](/assets/images/rfm_retention24.png)
+![Retention Detail 25](/assets/images/rfm_retention25.png)
+![Migration Matrix 23-24](/assets/images/rfm_migrationmatrix24.png)
+![Migration Matrix 24-25](/assets/images/rfm_migrationmatrix25.png)
+*The table screenshots above show various veiews of the knitted outputs of the above code, concluding in a matrix of previous and current segments for the 2024-2025 RFM observation window. The counts indicate how many customers moved from the previous segment to the corresponding new segment. Inactive to a segment means a new or reactivated customer. A segment to inactive means a customer churned.*
 
 **Key Takeaways from Migration & Retention:**
 
@@ -556,6 +568,8 @@ In this section, we present faceted visualizations that bring the segment KPI re
 
 ### Revenue Share by Segment (Faceted by Period)
 By faceting revenue bars by period, we can easily compare which segments grew or shrank in revenue share across years. For instance, Champions may contribute an increasing share in FY2025 compared to FY2023, while others plateau or decline.
+
+![Revenue by Segment Column Chart](/assets/images/revenue_by_segment_plot.png)
 
 ```
 {r 09-rev-by-segment, echo=TRUE, fig.cap="Revenue by Segment Across Periods"}
@@ -586,6 +600,8 @@ bind_rows(
 
 ### Revenue Per Customer by Segment (Faceted Across Periods)
 This bar chart shows the average revenue generated per customer in each segment for FY2023, FY2024, and FY2025. By faceting on segment and plotting a trio of colored bars (one per year), we can compare how much each type of customer contributes on a per‐head basis and how their value evolves year over year. This view complements overall revenue trends by normalizing for segment size, helping us understand which groups deliver the greatest return on acquisition and where there may be upside in shifting focus.
+
+![Revenue Per Customer Column Chart](/assets/images/revenue_per_customer_plot.png)
 
 ```
 {r 10-rev-per-cust, echo=TRUE, fig.cap="Revenue per Customer by Segment Across Periods"}
@@ -629,6 +645,8 @@ ggplot(rev_pc_df, aes(x = Period, y = revenue_per_customer, fill = Period)) +
 ### AOV Trend by Segment (Faceted)
 This faceted line chart clearly shows how average order value for each segment evolves over time, highlighting segments that are improving in spending versus those that are stagnant or declining.
 
+![AOV Trend Line Charts](/assets/images/AOV_by_segment_plot.png)
+
 ```
 {r 11-aov-trend, echo=TRUE, fig.cap="AOV Trend by Segment"}
 # Combine all three windows into one data frame with a Period identifier
@@ -664,6 +682,8 @@ ggplot(aov_data, aes(x = Period, y = AOV, group = segment)) +
 
 ### Return Rate Heatmap (Faceted by Segment)
 Faceting this heatmap by segment isolates each segment’s return rate trends, making it easier to see if returns are improving or worsening over time within specific customer groups.
+
+![Return Rate Heatmap](/assets/images/returns_by_segment_plot.png)
 
 ```
 {r 12-return-heatmap, echo=TRUE, fig.cap="Return Rate by Segment & Period"}
