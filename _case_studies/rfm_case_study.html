@@ -405,17 +405,22 @@ centers.</li>
 <p>First, we load the necessary packages and data into R. We will use
 <strong>tidyverse</strong> for data manipulation and
 <strong>lubridate</strong> for date handling.</p>
-<p>```{r 01-setup, echo=TRUE, include=TRUE, message=TRUE, warning=FALSE}
-library(tidyverse) library(lubridate) library(dplyr) library(knitr)
-library(purrr) library(ggplot2) library(scales)</p>
-<p>transactions &lt;- read_csv(“transactions_cleaned.csv”) customers
-&lt;- read_csv(“customer_metadata_cleaned.csv”)</p>
-<pre><code>
-*(For brevity, no need to load &#39;inventory_cleaned.csv&#39;, &#39;events_cleaned.csv&#39;, &#39;dc_list_cleaned.csv&#39;, as they are not directly needed for the RFM analysis.)* 
+<pre><code>{r 01-setup, echo=TRUE, include=TRUE, message=TRUE, warning=FALSE}
+library(tidyverse)
+library(lubridate)
+library(dplyr)
+library(knitr)
+library(purrr)
+library(ggplot2)
+library(scales)
 
-Let&#39;s inspect the transactions data structure:
-
-```{r 02-preview-transactions, echo=TRUE, include=TRUE}
+transactions &lt;- read_csv(&quot;transactions_cleaned.csv&quot;)
+customers    &lt;- read_csv(&quot;customer_metadata_cleaned.csv&quot;)</code></pre>
+<p><em>(For brevity, no need to load ‘inventory_cleaned.csv’,
+‘events_cleaned.csv’, ‘dc_list_cleaned.csv’, as they are not directly
+needed for the RFM analysis.)</em></p>
+<p>Let’s inspect the transactions data structure:</p>
+<pre><code>{r 02-preview-transactions, echo=TRUE, include=TRUE}
 glimpse(transactions)
 head(transactions, 5)</code></pre>
 <p>Each transaction record represents <strong>one item in an
@@ -1324,7 +1329,8 @@ issues, product quality, inaccurate listings) and revise descriptions,
 QC or post-purchase guidance to cut down on unnecessary returns.</li>
 </ul>
 <ol start="7" style="list-style-type: decimal">
-<li>**Refine acquisition channel strategy by segment.””</li>
+<li><strong>Refine acquisition channel strategy by
+segment.</strong></li>
 </ol>
 <ul>
 <li>Increase investment in Email and Display campaigns targeted at

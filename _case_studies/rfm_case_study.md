@@ -14,7 +14,7 @@ tags:
   - segmentation
   - retention
   - tableau
-assets: /assets/rfm_case_study
+  - ecommerce
 ---
 
 # Introduction
@@ -39,7 +39,8 @@ The original data is sourced from 'thelook_ecommerce' fictional retail data set,
 
 First, we load the necessary packages and data into R. We will use **tidyverse** for data manipulation and **lubridate** for date handling.
 
-```{r 01-setup, echo=TRUE, include=TRUE, message=TRUE, warning=FALSE}
+```
+{r 01-setup, echo=TRUE, include=TRUE, message=TRUE, warning=FALSE}
 library(tidyverse)
 library(lubridate)
 library(dplyr)
@@ -56,7 +57,8 @@ customers    <- read_csv("customer_metadata_cleaned.csv")
 
 Let's inspect the transactions data structure:
 
-```{r 02-preview-transactions, echo=TRUE, include=TRUE}
+```
+{r 02-preview-transactions, echo=TRUE, include=TRUE}
 glimpse(transactions)
 head(transactions, 5)
 ```
@@ -85,7 +87,8 @@ Next, we define the three time windows for segmentation. Based on the data and b
 
 We'll start by Joining the "customers" and "transactions" tables to update the latter to include `traffic_source`.
 
-```{r 03-join-customers, echo=TRUE, include=TRUE}
+```
+{r 03-join-customers, echo=TRUE, include=TRUE}
 transactions <- transactions %>%
   left_join(
     customers %>% select(user_id, traffic_source),
@@ -95,7 +98,8 @@ transactions <- transactions %>%
 
 We'll filter transactions into the RFM windows (considering only completed purchases, not returns) and compute RFM metrics for each customer per window.
 
-```{r 04-define-windows, echo=TRUE, include=TRUE}
+```
+{r 04-define-windows, echo=TRUE, include=TRUE}
 # Make sure your order date column is Date class
 transactions <- transactions %>%
   mutate(order_date = as_date(order_date))
@@ -138,7 +142,8 @@ Now calculate Recency, Frequency, and Monetary values for each customer in each 
 
 We'll use **dplyr** to group transactions by user and compute these metrics for each period.
 
-```{r 05-rfm-metrics, echo=TRUE, include=TRUE}
+```
+{r 05-rfm-metrics, echo=TRUE, include=TRUE}
 rfm_w1 <- transactions_w1 %>%
   group_by(user_id, traffic_source) %>%
   summarise(
@@ -240,7 +245,8 @@ When I first built the RFM segments, they relied solely on R/F/M scores and noti
 To address this, I added a **First-Time Buyer** flag (based on each user’s first-ever purchase date) _before_ any RFM scoring, then iterated `case_when()` logic, tweaking thresholds and adding special cases (e.g. “Bargain Hunters,” “Potential High-Value”) until every customer fell into a meaningful segment.  
 What follows is the final, workflow: we compute the new-customer flags up front, then assign **First-Time Buyers**, and finally apply a standard RFM hierarchy to capture the rest of the customer base with no one left unclassified.
 
-```{r 06-flag-and-segment, echo=TRUE, include=TRUE}
+```
+{r 06-flag-and-segment, echo=TRUE, include=TRUE}
 # Compute first-ever purchase date and window flags
 first_purchase_dates <- transactions %>%
   filter(is_returned == FALSE) %>%
@@ -360,7 +366,8 @@ For a deeper understanding, we can calculate some Key Performance Indicators (KP
 - Average Frequency and Monetary per customer in the segment.
 - Percentage of overall revenue from that segment.
 
-```{r 07-kpi-calc, echo=TRUE, include=TRUE}
+```
+{r 07-kpi-calc, echo=TRUE, include=TRUE}
 # Combine all scored RFM tables into one dataframe
 rfm_all <- bind_rows(
   rfm_2023_scored %>% mutate(segment_window = "2022-2023"),
@@ -425,7 +432,8 @@ These counts enable us to:
 - **Measure churn**: how many active customers in year 1 did not return in year 2.
 - **Identify top segment transitions**: which flows dominate (e.g. New-Promising, Loyal-Champion).
 
-```{r 08-build-migrations, echo=TRUE, include=TRUE}
+```
+{r 08-build-migrations, echo=TRUE, include=TRUE}
 # Build user‐segment lists for each window
 segment_by_user <- list(
   FY2023 = rfm_2023_scored %>% select(user_id, segment),
@@ -546,7 +554,8 @@ In this section, we present faceted visualizations that bring the segment KPI re
 ### Revenue Share by Segment (Faceted by Period)
 By faceting revenue bars by period, we can easily compare which segments grew or shrank in revenue share across years. For instance, Champions may contribute an increasing share in FY2025 compared to FY2023, while others plateau or decline.
 
-```{r 09-rev-by-segment, echo=TRUE, fig.cap="Revenue by Segment Across Periods"}
+```
+{r 09-rev-by-segment, echo=TRUE, fig.cap="Revenue by Segment Across Periods"}
 # Named list of RFM data frames
 segmented_rfm <- list(
   `2022-2023` = rfm_2023_scored,
@@ -615,7 +624,8 @@ ggplot(rev_pc_df, aes(x = Period, y = revenue_per_customer, fill = Period)) +
 ### AOV Trend by Segment (Faceted)
 This faceted line chart clearly shows how average order value for each segment evolves over time, highlighting segments that are improving in spending versus those that are stagnant or declining.
 
-```{r 11-aov-trend, echo=TRUE, fig.cap="AOV Trend by Segment"}
+```
+{r 11-aov-trend, echo=TRUE, fig.cap="AOV Trend by Segment"}
 # Combine all three windows into one data frame with a Period identifier
 aov_data <- bind_rows(
   map2(segmented_rfm, names(segmented_rfm), ~ .x %>% mutate(Period = .y))
@@ -650,7 +660,8 @@ ggplot(aov_data, aes(x = Period, y = AOV, group = segment)) +
 ### Return Rate Heatmap (Faceted by Segment)
 Faceting this heatmap by segment isolates each segment’s return rate trends, making it easier to see if returns are improving or worsening over time within specific customer groups.
 
-```{r 12-return-heatmap, echo=TRUE, fig.cap="Return Rate by Segment & Period"}
+```
+{r 12-return-heatmap, echo=TRUE, fig.cap="Return Rate by Segment & Period"}
 # Build a customer‐period return flag from the raw transactions
 customer_returns <- transactions %>%
   # assign each order_date to a window label
@@ -716,7 +727,8 @@ returns_by_segment %>%
 ### Traffic Source Mix by Segment (Faceted by Period)
 This faceted bar chart shows how the customer acquisition channels differ by segment and period. It helps identify which channels are most effective at bringing in high-value segments vs. segments with high return rates.
 
-```{r 13-traffic-mix, echo=TRUE, fig.cap="Traffic Source Mix by Segment Across Periods"}
+```
+{r 13-traffic-mix, echo=TRUE, fig.cap="Traffic Source Mix by Segment Across Periods"}
 # Combine all three windows into one data frame, tagging each row with its period
 traffic_data <- bind_rows(
   map2(segmented_rfm, names(segmented_rfm),
@@ -756,7 +768,8 @@ ggplot(traffic_data, aes(x = Period, y = proportion, fill = traffic_source)) +
 ### Sankey Diagram of Segment Flows
 To create a Sankey diagram, we'll create a longform chart capturing the aggregated counts of all of the unique flows, including columns for each year's segment for each flow, and the aggregated number of users for each unique flow. This can then be imported into Tableau Public, where the column for each year serves as the "level" when using the Sankey extension, and the sum of users for each flow (here N) will be applied as the link.
 
-```{r 14-build-sankey-data, echo=TRUE, include=TRUE}
+```
+{r 14-build-sankey-data, echo=TRUE, include=TRUE}
 # Compute each customer’s first-ever transaction date (against your full transactions table)
 first_transaction_dates <- transactions %>%
   group_by(user_id) %>%
@@ -888,7 +901,7 @@ write.csv(sankey_input, "sankey_input.csv")
   - Dashboard core metrics (segment sizes, retention rate, revenue concentration) so sales/marketing can spot shifts as soon as they occur.
 6. **Drill into Returns.** 
   - Benchmark these segment-level return rates against industry norms. If they exceed typical “try-on” returns, investigate root causes (fit issues, product quality, inaccurate listings) and revise descriptions, QC or post-purchase guidance to cut down on unnecessary returns.
-7. **Refine acquisition channel strategy by segment.""
+7. **Refine acquisition channel strategy by segment.**
   - Increase investment in Email and Display campaigns targeted at high-value prospects to boost Champion and Loyal segment growth
   - Optimize Search and Organic efforts (SEO, paid search bids) to improve top-of-funnel volume without sacrificing quality
   - Use channel-segment performance metrics monthly to shift budget dynamically toward channels yielding the best RFM outcomes
