@@ -30,6 +30,8 @@ permalink: /blog/:year/:month/:day/:title/
 future: true
 
 footer_scripts:
+  - https://www.googletagmanager.com/gtag/js?id=G-CR05E3K3DK
+  - /assets/js/google-analytics.js
   - /assets/js/externalLinksHandler.js
 
 defaults:
